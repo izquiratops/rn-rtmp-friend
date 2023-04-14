@@ -1,5 +1,4 @@
-<p align="center">
-<img src="https://user-images.githubusercontent.com/42299721/200197084-5e8ebcf2-320e-49cf-8504-0ad94773c218.png" alt="logo" width="90%"/>
+
 
 <p align="center">
 <img src="https://img.shields.io/github/license/andriiklymiuk/react-native-publisher" alt="github/license" />
@@ -12,6 +11,8 @@
 </p>
 
 📹 Live stream RTMP publisher for React Native with built in camera support!
+
+THIS IS ORIGINALLY FORK OF [THE AWESOME LIBRARY](https://github.com/Andriiklymiuk/react-native-publisher). p.s Created this fork, because i needed some fixes to be in the app (like video settings setup, reconnection, etc.)
 
 ### ⚠️🛠️ Support for [the new architecture](https://reactnative.dev/docs/the-new-architecture/landing-page) is under development
 
