@@ -28,3 +28,8 @@ jobs:
           pnpm publish "react-native-publisher-$version.tgz" --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create Github release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "react-native-publisher-*.tgz"
