@@ -1,6 +1,6 @@
 {
   "name": "react-native-publisher",
-  "version": "0.4.10",
+  "version": "0.4.11",
   "description": "RTM Publisher for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
