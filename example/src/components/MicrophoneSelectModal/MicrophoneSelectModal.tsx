@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Modal, TouchableOpacity, Platform } from 'react-native';
-import { AudioInputType } from 'react-native-rtmp-publisher';
+import { AudioInputType } from 'react-native-publisher';
 import Button from '../Button';
 
 import styles, { itemStyles } from './MicrophoneSelectModal.styles';

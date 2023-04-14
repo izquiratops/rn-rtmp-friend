@@ -6,7 +6,7 @@ import RTMPPublisher, {
   StreamState,
   AudioInputType,
   BluetoothDeviceStatuses,
-} from 'react-native-rtmp-publisher';
+} from 'react-native-publisher';
 
 import styles from './App.styles';
 

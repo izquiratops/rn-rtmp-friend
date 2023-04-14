@@ -2,13 +2,13 @@
 <img src="https://user-images.githubusercontent.com/42299721/200197084-5e8ebcf2-320e-49cf-8504-0ad94773c218.png" alt="logo" width="90%"/>
 
 <p align="center">
-<img src="https://img.shields.io/github/license/ezranbayantemur/react-native-rtmp-publisher" alt="github/license" />
-<img src="https://img.shields.io/github/issues/ezranbayantemur/react-native-rtmp-publisher" alt="github/issues" />
-<img src="https://img.shields.io/github/issues-pr/ezranbayantemur/react-native-rtmp-publisher" alt="github/issues-pr" />
-<img src="https://img.shields.io/npm/dw/react-native-rtmp-publisher" alt="npm/dw" />
-<img src="https://img.shields.io/github/followers/ezranbayantemur?style=social" alt="github/followers" />
-<img src="https://img.shields.io/github/stars/ezranbayantemur/react-native-rtmp-publisher?style=social" alt="github/stars" />
-<img src="https://img.shields.io/github/forks/ezranbayantemur/react-native-rtmp-publisher?style=social" alt="github/forks" />
+<img src="https://img.shields.io/github/license/andriiklymiuk/react-native-publisher" alt="github/license" />
+<img src="https://img.shields.io/github/issues/andriiklymiuk/react-native-publisher" alt="github/issues" />
+<img src="https://img.shields.io/github/issues-pr/andriiklymiuk/react-native-publisher" alt="github/issues-pr" />
+<img src="https://img.shields.io/npm/dw/react-native-publisher" alt="npm/dw" />
+<img src="https://img.shields.io/github/followers/andriiklymiuk?style=social" alt="github/followers" />
+<img src="https://img.shields.io/github/stars/andriiklymiuk/react-native-publisher?style=social" alt="github/stars" />
+<img src="https://img.shields.io/github/forks/andriiklymiuk/react-native-publisher?style=social" alt="github/forks" />
 </p>
 
 📹 Live stream RTMP publisher for React Native with built in camera support!
@@ -18,13 +18,13 @@
 ## Installation
 
 ```sh
-npm install react-native-rtmp-publisher
+npm install react-native-publisher
 ```
 
 or
 
 ```sh
-yarn add react-native-rtmp-publisher
+yarn add react-native-publisher
 ```
 
 and for iOS
@@ -122,7 +122,7 @@ You can use Youtube for live stream server. You can check [Live on Youtube](http
 
 ## Usage
 ```js
-import RTMPPublisher from 'react-native-rtmp-publisher';
+import RTMPPublisher from 'react-native-publisher';
 
 // ...
 

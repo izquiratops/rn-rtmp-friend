@@ -1,5 +1,5 @@
 {
-  "name": "react-native-rtmp-publisher",
+  "name": "react-native-publisher",
   "version": "0.4.7",
   "description": "RTM Publisher for React Native",
   "main": "lib/commonjs/index",
@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-rtmp-publisher.podspec",
+    "react-native-publisher.podspec",
     "!lib/typescript/example",
     "!lib/commonjs/test",
     "!lib/module/test",
@@ -34,8 +34,8 @@
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "pnpm install example && npx pod-install example/ios ",
     "build": "pnpm install && pnpm pack",
-    "unpack": "for file in react-native-rtmp-publisher*.tgz; do tar -xzf \"$file\"; done",
-    "deletePackage": "rm -r package && rm -r react-native-rtmp-publisher*.tgz"
+    "unpack": "for file in react-native-publisher*.tgz; do tar -xzf \"$file\"; done",
+    "deletePackage": "rm -r package && rm -r react-native-publisher*.tgz"
   },
   "keywords": [
     "react-native",
@@ -44,14 +44,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ezranbayantemur/react-native-rtmp-publisher.git"
+    "url": "git+https://github.com/andriiklymiuk/react-native-publisher.git"
   },
-  "author": "Ezran <ezranbayantemur@gmail.com> (https://github.com/ezranbayantemur)",
+  "author": "Ezran <andriiklymiuk@gmail.com> (https://github.com/andriiklymiuk)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ezranbayantemur/react-native-rtmp-publisher/issues"
+    "url": "https://github.com/andriiklymiuk/react-native-publisher/issues"
   },
-  "homepage": "https://github.com/ezranbayantemur/react-native-rtmp-publisher#readme",
+  "homepage": "https://github.com/andriiklymiuk/react-native-publisher#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

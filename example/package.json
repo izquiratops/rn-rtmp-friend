@@ -1,6 +1,6 @@
 {
-  "name": "react-native-rtmp-publisher-example",
-  "description": "Example app for react-native-rtmp-publisher",
+  "name": "react-native-publisher-example",
+  "description": "Example app for react-native-publisher",
   "version": "0.0.1",
   "private": true,
   "scripts": {
