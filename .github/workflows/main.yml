@@ -21,13 +21,16 @@ jobs:
       - name: Create package tarball
         run: pnpm pack
 
+      - name: Set publishing config
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
       - name: Publish to npm
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           version=$(jq -r .version package.json)
           pnpm publish "react-native-publisher-$version.tgz" --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Github release
         uses: ncipollo/release-action@v1
