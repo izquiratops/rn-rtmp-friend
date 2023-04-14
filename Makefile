@@ -1,6 +1,8 @@
 build:
-	pnpm prepare && pnpm pack
+	pnpm pack
+unpack:
+	pnpm unpack
 deletePackage:
 	pnpm deletePackage
 
-.PHONY: build deletePackage
+.PHONY: build unpack deletePackage
