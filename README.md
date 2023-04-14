@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/github/license/andriiklymiuk/react-native-publisher" alt="github/license" />
 <img src="https://img.shields.io/github/issues/andriiklymiuk/react-native-publisher" alt="github/issues" />
 <img src="https://img.shields.io/github/issues-pr/andriiklymiuk/react-native-publisher" alt="github/issues-pr" />
-<img src="https://img.shields.io/npm/dw/react-native-publisher" alt="npm/dw" />
+<img alt="npm" src="https://img.shields.io/npm/v/react-native-publisher">
 <img src="https://img.shields.io/github/followers/andriiklymiuk?style=social" alt="github/followers" />
 <img src="https://img.shields.io/github/stars/andriiklymiuk/react-native-publisher?style=social" alt="github/stars" />
 <img src="https://img.shields.io/github/forks/andriiklymiuk/react-native-publisher?style=social" alt="github/forks" />
