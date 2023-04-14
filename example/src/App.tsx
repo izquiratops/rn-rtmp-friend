@@ -29,8 +29,9 @@ export default function App() {
   const [isStreaming, setIsStreaming] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [hasBluetoothDevice, setHasBluetoothDevice] = useState<boolean>(false);
-  const [microphoneModalVisibility, setMicrophoneModalVisibility] =
-    useState<boolean>(false);
+  const [microphoneModalVisibility, setMicrophoneModalVisibility] = useState<
+    boolean
+  >(false);
 
   const { permissionGranted } = usePermissions();
 

@@ -27,8 +27,9 @@ const initialMicrophoneValues = [
 ];
 
 const MicrophoneSelectModal = ({ visible, onSelect, onClose }: ButtonProps) => {
-  const [selectedMicrophoneKey, setSelectedMicrophoneKey] =
-    useState<AudioInputType>();
+  const [selectedMicrophoneKey, setSelectedMicrophoneKey] = useState<
+    AudioInputType
+  >();
 
   const handleSelect = (value: AudioInputType) => {
     onSelect(value);
