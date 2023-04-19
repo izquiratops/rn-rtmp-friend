@@ -1,3 +1,8 @@
+## [v0.4.16]
+
+### Fixes
+- Fixes background audio breaks stream, if it was played before in the background
+
 ## [v0.4.15]
 
 ### Features
