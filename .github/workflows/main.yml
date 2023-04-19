@@ -34,10 +34,15 @@ jobs:
           version=$(jq -r .version package.json)
           pnpm publish "react-native-publisher-$version.tgz" --access public
 
+      - name: Extract release notes
+        run: |
+          version=$(jq -r .version package.json)
+          awk -v version="$version" '/^\#\# \[v/{if (p) {exit}; if (match($0, "^## \\[v"version"\\]")) {p=1}; next}; p' CHANGELOG.md > RELEASE_NOTES.md
+
       - name: Create Github release
         uses: softprops/action-gh-release@v1
         with:
-          body_path: CHANGELOG.md
+          body_path: RELEASE_NOTES.md
           files: "react-native-publisher-*.tgz"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
