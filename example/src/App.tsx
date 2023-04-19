@@ -125,6 +125,7 @@ export default function App() {
             'landscapeRight',
             'portraitUpsideDown',
           ]}
+          videoOrientation="portrait"
           style={styles.publisher_camera}
           onDisconnect={handleOnDisconnect}
           onConnectionFailed={handleOnConnectionFailed}

@@ -33,6 +33,10 @@ export interface RTMPPublisherProps {
    */
   allowedVideoOrientations?: VideoOrientation[];
   /**
+   * Set videoOrientation manually, if you wish
+   */
+  videoOrientation?: VideoOrientation;
+  /**
    * Callback for connection fails on RTMP server
    */
   onConnectionFailed?: (data: string) => void;

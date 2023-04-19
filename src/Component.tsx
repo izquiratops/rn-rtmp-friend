@@ -29,6 +29,7 @@ export interface NativeRTMPPublisherProps {
   streamName: string;
   videoSettings?: VideoSettingsType;
   allowedVideoOrientations?: VideoOrientation[];
+  videoOrientation?: VideoOrientation;
   onConnectionFailed?: (e: ConnectionFailedType) => void;
   onConnectionStarted?: (e: ConnectionStartedType) => void;
   onConnectionSuccess?: (e: ConnectionSuccessType) => void;

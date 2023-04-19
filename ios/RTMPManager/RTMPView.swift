@@ -56,6 +56,16 @@ class RTMPView: UIView {
           RTMPCreator.allowedVideoOrientations = orientations
       }
   }
+
+      @objc var videoOrientation: NSString = AVCaptureVideoOrientation.portrait.toString() as NSString {
+       didSet {
+           if let orientation: AVCaptureVideoOrientation = AVCaptureVideoOrientation(string: videoOrientation as String) {
+               RTMPCreator.videoOrientation = orientation
+               RTMPCreator.stream.videoOrientation = orientation
+               updateVideoSettings(orientation: orientation)
+           }
+       }
+     }
     
     private var retryCount: Int = 0
     private static let maxRetryCount: Int = 10
@@ -259,6 +269,21 @@ extension AVCaptureVideoOrientation {
             self = .portraitUpsideDown
         default:
             return nil
+        }
+    }
+    
+    func toString() -> String {
+        switch self {
+        case .portrait:
+            return "portrait"
+        case .landscapeLeft:
+            return "landscapeLeft"
+        case .landscapeRight:
+            return "landscapeRight"
+        case .portraitUpsideDown:
+            return "portraitUpsideDown"
+        @unknown default:
+            fatalError("AVCaptureVideoOrientation has an unknown value.")
         }
     }
     

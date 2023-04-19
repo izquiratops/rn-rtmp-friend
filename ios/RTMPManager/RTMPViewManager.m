@@ -22,6 +22,8 @@ RCT_EXPORT_VIEW_PROPERTY(videoSettings, NSDictionary)
 
 RCT_EXPORT_VIEW_PROPERTY(allowedVideoOrientations, NSArray)
 
+RCT_EXPORT_VIEW_PROPERTY(videoOrientation, NSString)
+
 RCT_EXPORT_VIEW_PROPERTY(onDisconnect, RCTDirectEventBlock)
 
 RCT_EXPORT_VIEW_PROPERTY(onConnectionFailed, RCTDirectEventBlock)

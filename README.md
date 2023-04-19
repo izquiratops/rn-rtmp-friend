@@ -126,6 +126,7 @@ async function publisherActions() {
     "landscapeRight",
     "portraitUpsideDown"
   ]}
+  videoOrientation="portrait"
   onConnectionFailedRtmp={() => ...}
   onConnectionStartedRtmp={() => ...}
   onConnectionSuccessRtmp={() => ...}
@@ -143,6 +144,7 @@ async function publisherActions() {
 | `streamName` | `string` |  `true`  |          Stream name or key           |
 | `videoSettings` | `VideoSettingsType` |  `false`  |   Video settings for video        |
 | `allowedVideoOrientations` | `VideoOrientation[]` |  `false`  |   Allowed video orientation        |
+| `videoOrientation` | `VideoOrientation` |  `false`  |   Initial video orientation        |
 
 ### Youtube Example
 

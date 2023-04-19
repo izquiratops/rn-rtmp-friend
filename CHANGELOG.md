@@ -1,3 +1,8 @@
+## [v0.4.15]
+
+### Features
+- Added videoOrientation to set initial video orientation
+
 ## [v0.4.14]
 
 ### Features
