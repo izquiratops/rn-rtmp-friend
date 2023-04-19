@@ -40,10 +40,10 @@ class RTMPView: UIView {
       ]
   ){
     didSet {
-        let width = videoSettings["width"] as? Int ?? 720
-        let height = videoSettings["height"] as? Int ?? 1280
-        let bitrate = videoSettings["bitrate"] as? Int ?? (3000 * 1000)
-        let audioBitrate = videoSettings["audioBitrate"] as? Int ?? (192 * 1000)
+        let width: Int = videoSettings["width"] as? Int ?? 720
+        let height: Int = videoSettings["height"] as? Int ?? 1280
+        let bitrate: Int = videoSettings["bitrate"] as? Int ?? (3000 * 1000)
+        let audioBitrate: Int = videoSettings["audioBitrate"] as? Int ?? (192 * 1000)
         
         RTMPCreator.setVideoSettings(VideoSettingsType(width: width, height: height, bitrate: bitrate, audioBitrate: audioBitrate)
         )
@@ -113,7 +113,7 @@ class RTMPView: UIView {
 }
 
     func stopOtherAudioSessions() {
-        let audioSession = AVAudioSession.sharedInstance()
+        let audioSession: AVAudioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(.playAndRecord, mode: .default)
             try audioSession.setActive(true, options: [])
@@ -269,7 +269,7 @@ extension UIDeviceOrientation {
 
 extension AVCaptureVideoOrientation {
     init?(string: String) {
-        let lowercasedString = string.lowercased()
+        let lowercasedString: String = string.lowercased()
         switch lowercasedString {
         case "portrait":
             self = .portrait

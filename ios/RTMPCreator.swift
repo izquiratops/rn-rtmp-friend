@@ -18,7 +18,7 @@ struct VideoSettingsType {
 class RTMPCreator {
     public static let connection: RTMPConnection = RTMPConnection()
     public static let stream: RTMPStream = RTMPStream(connection: connection)
-    private static let session = AVAudioSession.sharedInstance()
+    private static let session: AVAudioSession = AVAudioSession.sharedInstance()
     private static var _streamUrl: String = ""
     private static var _streamName: String = ""
     public static var isStreaming: Bool = false
