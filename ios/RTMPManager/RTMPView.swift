@@ -72,6 +72,8 @@ class RTMPView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    stopOtherAudioSessions()
+
     UIApplication.shared.isIdleTimerDisabled = true
     
     hkView = MTHKView(frame: UIScreen.main.bounds)
@@ -109,6 +111,16 @@ class RTMPView: UIView {
     self.addSubview(hkView)
       
 }
+
+    func stopOtherAudioSessions() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playAndRecord, mode: .default)
+            try audioSession.setActive(true, options: [])
+        } catch {
+            print("Error setting audio session category or activating: \(error)")
+        }
+    }
     
     @objc
     private func rtmpErrorHandler(_ notification: Notification) {
