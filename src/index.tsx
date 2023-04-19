@@ -6,4 +6,6 @@ export {
   StreamStatus,
   AudioInputType,
   BluetoothDeviceStatuses,
+  VideoSettingsType,
+  VideoOrientation,
 } from './types';

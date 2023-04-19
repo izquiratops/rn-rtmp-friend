@@ -119,6 +119,12 @@ export default function App() {
           streamURL={STREAM_URL}
           streamName={STREAM_NAME}
           videoSettings={VIDEO_SETTINGS}
+          allowedVideoOrientations={[
+            'portrait',
+            'landscapeLeft',
+            'landscapeRight',
+            'portraitUpsideDown',
+          ]}
           style={styles.publisher_camera}
           onDisconnect={handleOnDisconnect}
           onConnectionFailed={handleOnConnectionFailed}

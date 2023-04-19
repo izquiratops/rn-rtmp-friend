@@ -68,6 +68,7 @@ export interface RTMPPublisherProps {
   streamURL: string;
   streamName: string;
   videoSettings?: VideoSettingsType;
+  allowedVideoOrientations?: VideoOrientation[];
   onConnectionFailed?: (e: null) => void;
   onConnectionStarted?: (e: null) => void;
   onConnectionSuccess?: (e: null) => void;
@@ -106,3 +107,9 @@ export interface VideoSettingsType {
   height: number;
   bitrate: number;
 }
+
+export type VideoOrientation =
+  | 'portrait'
+  | 'landscapeLeft'
+  | 'landscapeRight'
+  | 'portraitUpsideDown';

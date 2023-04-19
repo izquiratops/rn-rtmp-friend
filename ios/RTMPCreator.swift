@@ -30,6 +30,12 @@ class RTMPCreator {
     )
 
     public static var videoOrientation: AVCaptureVideoOrientation = AVCaptureVideoOrientation.portrait
+    public static var allowedVideoOrientations: [AVCaptureVideoOrientation] = [
+        .portrait,
+        .landscapeLeft,
+        .landscapeRight,
+        .portraitUpsideDown
+    ]
 
     public static func setStreamUrl(url: String){
         _streamUrl = url
@@ -59,9 +65,11 @@ class RTMPCreator {
     
     public static func setVideoSettings(_ newVideoSettings: VideoSettingsType) {
         videoSettings = newVideoSettings
+        let width = videoOrientation.isPortrait ? videoSettings.width : videoSettings.height
+        let height = videoOrientation.isPortrait ? videoSettings.height : videoSettings.width
         stream.videoSettings = [
-            .width: videoSettings.width,
-            .height: videoSettings.height,
+            .width: width,
+            .height: height,
             .bitrate: videoSettings.bitrate,
             .scalingMode: ScalingMode.cropSourceToCleanAperture,
             .profileLevel: kVTProfileLevel_H264_High_AutoLevel

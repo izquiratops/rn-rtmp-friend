@@ -120,6 +120,12 @@ async function publisherActions() {
     bitrate: 5000 * 1024,
     audioBitrate: 192 * 1000
   }}
+  allowedVideoOrientations={[
+    "portrait",
+    "landscapeLeft",
+    "landscapeRight",
+    "portraitUpsideDown"
+  ]}
   onConnectionFailedRtmp={() => ...}
   onConnectionStartedRtmp={() => ...}
   onConnectionSuccessRtmp={() => ...}
@@ -136,6 +142,7 @@ async function publisherActions() {
 | `streamURL`  | `string` |  `true`  | Publish URL address with RTM Protocol |
 | `streamName` | `string` |  `true`  |          Stream name or key           |
 | `videoSettings` | `VideoSettingsType` |  `false`  |   Video settings for video        |
+| `allowedVideoOrientations` | `VideoOrientation` |  `false`  |   Allowed video orientation        |
 
 ### Youtube Example
 
@@ -193,6 +200,7 @@ For live stream, Youtube gives you stream url and stream key, you can place the 
 | `BluetoothDeviceStatuses` | `CONNECTING`, `CONNECTED`, `DISCONNECTED`           |
 | `AudioInputType`          | `BLUETOOTH_HEADSET`, `SPEAKER`, `WIRED_HEADSET`     |
 | `VideoSettingsType`       | `{width: number; height: number; bitrate: number; audioBitrate: number}`    |
+| `VideoOrientation`       | `portrait`, `landscapeLeft`, `landscapeRight`, `portraitUpsideDown`   |
 
 * AudioInputType: WIRED_HEADSET type supporting in only iOS. On Android it affects nothing. If a wired headset connected to Android device, device uses it as default.
 ## Used Native Packages

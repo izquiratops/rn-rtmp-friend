@@ -1,3 +1,8 @@
+## [v0.4.14]
+
+### Features
+- Added allowedVideoOrientations
+
 ## [v0.4.13]
 
 ### Features

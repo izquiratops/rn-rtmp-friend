@@ -49,6 +49,13 @@ class RTMPView: UIView {
         )
     }
   }
+
+  @objc var allowedVideoOrientations: [String] = ["portrait", "landscapeLeft", "landscapeRight", "portraitUpsideDown"] {
+      didSet {
+          let orientations = allowedVideoOrientations.compactMap { AVCaptureVideoOrientation(string: $0) }
+          RTMPCreator.allowedVideoOrientations = orientations
+      }
+  }
     
     private var retryCount: Int = 0
     private static let maxRetryCount: Int = 10
@@ -177,6 +184,10 @@ class RTMPView: UIView {
             return
         }
 
+        if !RTMPCreator.allowedVideoOrientations.contains(deviceOrientation) {
+            return
+        }
+
         if RTMPCreator.videoOrientation == deviceOrientation {
             return
         }
@@ -226,5 +237,27 @@ extension UIDeviceOrientation {
         default:
             return nil
         }
+    }
+}
+
+extension AVCaptureVideoOrientation {
+    init?(string: String) {
+        let lowercasedString = string.lowercased()
+        switch lowercasedString {
+        case "portrait":
+            self = .portrait
+        case "landscapeleft":
+            self = .landscapeLeft
+        case "landscaperight":
+            self = .landscapeRight
+        case "portraitupsidedown":
+            self = .portraitUpsideDown
+        default:
+            return nil
+        }
+    }
+    
+    var isPortrait: Bool {
+        return self == .portrait || self == .portraitUpsideDown
     }
 }
