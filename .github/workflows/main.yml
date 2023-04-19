@@ -34,34 +34,10 @@ jobs:
           version=$(jq -r .version package.json)
           pnpm publish "react-native-publisher-$version.tgz" --access public
 
-      - name: Install changelog generator dependencies
-        run: pnpm add --global github-changelog-generator
-
-      - name: Get release date from Git
-        run: |
-          version=$(jq -r .version package.json)
-          release_date=$(git log -1 --format=%ai "v$version")
-          echo "RELEASE_DATE=$release_date" >> $GITHUB_ENV
-
-      - name: Generate changelog
-        run: |
-          version=$(jq -r .version package.json)
-          previous_version=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))
-          github_changelog_generator -u $GITHUB_REPOSITORY_OWNER -p $GITHUB_REPOSITORY_NAME --since-tag $previous_version --future-release "v$version" --output generated_changelog.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Combine custom and generated changelogs
-        run: |
-          version=$(jq -r .version package.json)
-          echo "## [v$version] - $(date -d "$RELEASE_DATE" +'%Y-%m-%d')" > release_changelog.md
-          grep -A 10000 "## \[v$version\]" CHANGELOG.md >> release_changelog.md
-          grep -A 10000 "### Merged MRs" generated_changelog.md >> release_changelog.md
-
       - name: Create Github release
         uses: softprops/action-gh-release@v1
         with:
-          body_path: release_changelog.md
+          body_path: CHANGELOG.md
           files: "react-native-publisher-*.tgz"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
