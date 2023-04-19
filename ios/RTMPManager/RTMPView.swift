@@ -113,10 +113,15 @@ class RTMPView: UIView {
      }
     
     override func removeFromSuperview() {
+        super.removeFromSuperview()
         RTMPCreator.stream.attachAudio(nil)
         RTMPCreator.stream.attachCamera(nil)
-     }
-  
+        RTMPCreator.connection.removeEventListener(.rtmpStatus, selector: #selector(statusHandler), observer: self)
+        RTMPCreator.connection.removeEventListener(.ioError, selector: #selector(rtmpErrorHandler), observer: self)
+        UIApplication.shared.isIdleTimerDisabled = false
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
     @objc
     private func statusHandler(_ notification: Notification){
       let e = Event.from(notification)
