@@ -59,7 +59,8 @@ class RTMPView: UIView {
     
     hkView = MTHKView(frame: UIScreen.main.bounds)
     hkView.videoGravity = .resizeAspectFill
-    
+    RTMPCreator.stream.videoOrientation = RTMPCreator.videoOrientation
+      
     RTMPCreator.stream.audioSettings = [
         .bitrate: RTMPCreator.videoSettings.audioBitrate
     ]
@@ -84,7 +85,8 @@ class RTMPView: UIView {
 
     RTMPCreator.connection.addEventListener(.rtmpStatus, selector: #selector(statusHandler), observer: self)
     RTMPCreator.connection.addEventListener(.ioError, selector: #selector(rtmpErrorHandler), observer: self)
-
+      
+    NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     hkView.attachStream(RTMPCreator.stream)
 
     self.addSubview(hkView)
@@ -167,5 +169,62 @@ class RTMPView: UIView {
       if onStreamStateChanged != nil {
         onStreamStateChanged!(["data": status])
        }
+    }
+    
+    @objc
+    private func deviceOrientationDidChange(_ notification: Notification) {
+        guard let deviceOrientation = UIDevice.current.orientation.videoOrientation else {
+            return
+        }
+
+        if RTMPCreator.videoOrientation == deviceOrientation {
+            return
+        }
+
+        RTMPCreator.videoOrientation = deviceOrientation
+        RTMPCreator.stream.videoOrientation = deviceOrientation
+
+        updateVideoSettings(orientation: deviceOrientation)
+    }
+    
+    private func updateVideoSettings(orientation: AVCaptureVideoOrientation) {
+        let width: Int
+        let height: Int
+        let bitrate = RTMPCreator.videoSettings.bitrate
+        let audioBitrate = RTMPCreator.videoSettings.audioBitrate
+
+        if orientation == .portrait || orientation == .portraitUpsideDown {
+            width = RTMPCreator.videoSettings.width
+            height = RTMPCreator.videoSettings.height
+        } else {
+            width = RTMPCreator.videoSettings.height
+            height = RTMPCreator.videoSettings.width
+        }
+
+        videoSettings = NSDictionary(
+            dictionary: [
+                "width": width,
+                "height": height,
+                "bitrate": bitrate,
+                "audioBitrate": audioBitrate
+            ]
+        )
+    }
+}
+
+extension UIDeviceOrientation {
+    var videoOrientation: AVCaptureVideoOrientation? {
+        switch self {
+        case .portrait:
+            return .portrait
+        case .portraitUpsideDown:
+            return .portraitUpsideDown
+        case .landscapeRight:
+            return .landscapeLeft
+        case .landscapeLeft:
+            return .landscapeRight
+        default:
+            return nil
+        }
     }
 }

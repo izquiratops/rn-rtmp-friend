@@ -29,6 +29,8 @@ class RTMPCreator {
         audioBitrate: 128 * 1000
     )
 
+    public static var videoOrientation: AVCaptureVideoOrientation = AVCaptureVideoOrientation.portrait
+
     public static func setStreamUrl(url: String){
         _streamUrl = url
     }
