@@ -56,7 +56,7 @@ Add iOS Permission for camera and audio to `Info.plist`
 
 Implement these changes to `AppDelegate.m` (or `AppDelegate.mm`) 
 ```objc
-#import <AVFoundation/AVFoundation.h> // <-- Add this import
+#import <RtmpPublisher.h> // <-- Add this import
 .. 
 .. 
 
@@ -67,41 +67,7 @@ Implement these changes to `AppDelegate.m` (or `AppDelegate.mm`)
   ..
   ..
 
-  // <-- Add this section -->
-  AVAudioSession *session = AVAudioSession.sharedInstance;
-  NSError *error = nil;
-
-  if (@available(iOS 10.0, *)) {
-      [session
-        setCategory:AVAudioSessionCategoryPlayAndRecord
-        mode:AVAudioSessionModeVoiceChat
-        options:AVAudioSessionCategoryOptionDefaultToSpeaker|AVAudioSessionCategoryOptionAllowBluetooth
-        error:&error];
-    } else {
-      SEL selector = NSSelectorFromString(@"setCategory:withOptions:error:");
-      
-      NSArray * optionsArray =
-          [NSArray arrayWithObjects:
-            [NSNumber numberWithInteger:AVAudioSessionCategoryOptionAllowBluetooth],
-            [NSNumber numberWithInteger:AVAudioSessionCategoryOptionDefaultToSpeaker], nil];
-      
-      [session
-        performSelector:selector
-        withObject: AVAudioSessionCategoryPlayAndRecord
-        withObject: optionsArray
-      ];
-      
-      [session 
-        setMode:AVAudioSessionModeVoiceChat 
-        error:&error
-      ];
-    }
-    
-    [session 
-      setActive:YES 
-      error:&error
-    ];
-    // <-- Add this section -->
+  [RtmpPublisher setup];
 
     return YES;
   }
