@@ -142,7 +142,7 @@ async function publisherActions() {
 | `streamURL`  | `string` |  `true`  | Publish URL address with RTM Protocol |
 | `streamName` | `string` |  `true`  |          Stream name or key           |
 | `videoSettings` | `VideoSettingsType` |  `false`  |   Video settings for video        |
-| `allowedVideoOrientations` | `VideoOrientation` |  `false`  |   Allowed video orientation        |
+| `allowedVideoOrientations` | `VideoOrientation[]` |  `false`  |   Allowed video orientation        |
 
 ### Youtube Example
 
