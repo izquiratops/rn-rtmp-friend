@@ -1,3 +1,8 @@
+## [v0.4.17]
+
+### Fixes
+- Move publisher setup to init (now no need for setup in appDelegate)
+
 ## [v0.4.16]
 
 ### Fixes
