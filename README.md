@@ -54,24 +54,6 @@ Add iOS Permission for camera and audio to `Info.plist`
  <string>AUDIO PERMISSION DESCRIPTION</string>
 ```
 
-Implement these changes to `AppDelegate.m` (or `AppDelegate.mm`) 
-```objc
-#import <RtmpPublisher.h> // <-- Add this import
-.. 
-.. 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  ..
-  .. 
-  ..
-  ..
-
-  [RtmpPublisher setup];
-
-    return YES;
-  }
-```
 ## Example Project
 
 Clone the repo and run
