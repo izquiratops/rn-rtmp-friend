@@ -28,6 +28,22 @@ public class Publisher {
   ConnectionChecker _connectionChecker = new ConnectionChecker();
   BluetoothDeviceConnector _bluetoothDeviceConnector;
 
+  private VideoSettings videoSettings = VideoSettings.getDefault();
+  public void setVideoSettings(VideoSettings settings) {
+    Log.d("RTMPPublisher", "setVideoSettings called: videoOrientation=" + this.videoOrientation + ", width=" + settings.width + ", height=" + settings.height + ", bitrate=" + settings.bitrate + ", audioBitrate=" + settings.audioBitrate);
+    VideoSettings newVideoSettings = VideoSettings.getDefault();
+    if ("portrait".equals(this.videoOrientation) || "portraitUpsideDown".equals(this.videoOrientation)) {
+      newVideoSettings.height = settings.height;
+      newVideoSettings.width = settings.width;
+    } else {
+      newVideoSettings.height = settings.width;
+      newVideoSettings.width = settings.height;
+    }
+    newVideoSettings.bitrate = settings.bitrate;
+    newVideoSettings.audioBitrate = settings.audioBitrate;
+    this.videoSettings = settings;
+  }
+
   public Publisher(ThemedReactContext reactContext, SurfaceView surfaceView) {
     _reactContext = reactContext;
     _surfaceView = surfaceView;
@@ -176,9 +192,12 @@ public class Publisher {
   }
 
   public void startStream() {
+    Log.d("RTMPPublisher", "startStream called: " + "videoSettings" +videoSettings.width + videoSettings.height );
     try {
-      boolean isAudioPrepared = _rtmpCamera.prepareAudio(MediaRecorder.AudioSource.DEFAULT, 128 * 1024, 44100, true, false, false);
-      boolean isVideoPrepared = _rtmpCamera.prepareVideo(1280 , 720, 3000 * 1024);
+      boolean isAudioPrepared = _rtmpCamera.prepareAudio(MediaRecorder.AudioSource.DEFAULT, videoSettings.audioBitrate,
+          44100, true, false, false);
+      boolean isVideoPrepared = _rtmpCamera.prepareVideo(videoSettings.height, videoSettings.width,
+          videoSettings.bitrate);
 
       if (!isAudioPrepared || !isVideoPrepared || _streamName == null || _streamUrl == null) {
         return;
