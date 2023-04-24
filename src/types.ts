@@ -107,6 +107,7 @@ export interface VideoSettingsType {
   width: number;
   height: number;
   bitrate: number;
+  audioBitrate: number;
 }
 
 export type VideoOrientation =
