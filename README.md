@@ -174,7 +174,7 @@ For live stream, Youtube gives you stream url and stream key, you can place the 
 |  `isVideoPrepared`  |      `Promise<boolean>`   | Returns video prepare state |     ✅    |  ✅ |
 | `isCameraOnPreview` |      `Promise<boolean>`   |    Returns camera is on     |     ✅    |  ❌ |
 |   `setAudioInput`   |  `Promise<AudioInputType>`|    Sets microphone input    |     ✅    |  ✅ |
-|`setVideoSettings`   | `Promise<VideoSettingsType>`| Sets camera quality settings|     ❌  |  ✅ |
+|`setVideoSettings`   | `Promise<VideoSettingsType>`| Sets camera quality settings|      ✅  |  ✅ |
 
 ## Types
 

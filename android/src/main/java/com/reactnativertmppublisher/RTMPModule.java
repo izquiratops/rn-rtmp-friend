@@ -1,5 +1,7 @@
 package com.reactnativertmppublisher;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -7,7 +9,9 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReadableMap;
 import com.reactnativertmppublisher.enums.AudioInputType;
+import com.reactnativertmppublisher.modules.VideoSettings;
 
 public class RTMPModule extends ReactContextBaseJavaModule {
   private final String REACT_MODULE_NAME = "RTMPPublisher";
@@ -162,5 +166,29 @@ public class RTMPModule extends ReactContextBaseJavaModule {
     } catch (Exception e) {
       promise.reject(e);
     }
+  }
+
+  @ReactMethod
+  public void setVideoSettings(ReadableMap videoSettingsMap, Promise promise) {
+    Log.d("RTMPPublisher","setVideoSettings" +  String.valueOf(videoSettingsMap));
+    try {
+      VideoSettings defaultSettings = VideoSettings.getDefault();
+
+      int width = getIntOrDefault(videoSettingsMap, "width", defaultSettings.width);
+      int height = getIntOrDefault(videoSettingsMap, "height", defaultSettings.height);
+      int bitrate = getIntOrDefault(videoSettingsMap, "bitrate", defaultSettings.bitrate);
+      int audioBitrate = getIntOrDefault(videoSettingsMap, "audioBitrate", defaultSettings.audioBitrate);
+
+      VideoSettings settings = new VideoSettings(width, height, bitrate, audioBitrate);
+      RTMPManager.publisher.setVideoSettings(settings);
+      promise.resolve(null);
+
+    } catch (Exception e) {
+      promise.reject(e);
+    }
+  }
+
+  private int getIntOrDefault(ReadableMap map, String key, int defaultValue) {
+    return map.hasKey(key) ? map.getInt(key) : defaultValue;
   }
 }
