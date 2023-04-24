@@ -1,3 +1,9 @@
+## [v0.4.18]
+
+### Fixes
+- Added missing audioBitrate type in VideoSettings
+- Updated readme to include setVideoSettings for android also
+
 ## [v0.4.17]
 
 ### Fixes
