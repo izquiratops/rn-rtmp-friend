@@ -6,6 +6,9 @@ import android.media.MediaRecorder;
 import android.util.Log;
 import android.view.SurfaceView;
 
+import java.util.Arrays;
+import java.util.List;
+
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.Arguments;
@@ -28,7 +31,27 @@ public class Publisher {
   ConnectionChecker _connectionChecker = new ConnectionChecker();
   BluetoothDeviceConnector _bluetoothDeviceConnector;
 
+  private List<String> allowedVideoOrientations = Arrays.asList(
+    "portrait", 
+    "landscapeRight", 
+    "landscapeLeft",
+    "portraitUpsideDown"
+  );
+  
+  private String videoOrientation = "portrait";
   private VideoSettings videoSettings = VideoSettings.getDefault();
+
+  public void setAllowedVideoOrientations(List<String> allowedVideoOrientations) {
+    Log.d("RTMPPublisher", "setAllowedVideoOrientations called: allowedVideoOrientations=" + allowedVideoOrientations);
+    this.allowedVideoOrientations = allowedVideoOrientations;
+  }
+  public void setVideoOrientation(String videoOrientation) {
+    Log.d("RTMPPublisher", "setVideoOrientation called: videoOrientation=" + videoOrientation);
+    if (allowedVideoOrientations.contains(videoOrientation)) {
+      this.videoOrientation = videoOrientation;
+    }
+  }
+
   public void setVideoSettings(VideoSettings settings) {
     Log.d("RTMPPublisher", "setVideoSettings called: videoOrientation=" + this.videoOrientation + ", width=" + settings.width + ", height=" + settings.height + ", bitrate=" + settings.bitrate + ", audioBitrate=" + settings.audioBitrate);
     VideoSettings newVideoSettings = VideoSettings.getDefault();
