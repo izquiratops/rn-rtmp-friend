@@ -60,6 +60,19 @@ public class RTMPManager extends SimpleViewManager<SurfaceView> {
     publisher.setStreamName(name);
   }
 
+  @ReactProp(name = "videoSettings")
+  public void setVideoSettings(SurfaceView surfaceView, @Nullable ReadableMap videoSettings) {
+    Log.d("RTMPPublisher", "videoSettings prop:" + String.valueOf(videoSettings));
+    VideoSettings settings = VideoSettings.getDefault();
+
+    settings.width = videoSettings.getInt("width");
+    settings.height = videoSettings.getInt("height");
+    settings.bitrate = videoSettings.getInt("bitrate");
+    settings.audioBitrate = videoSettings.getInt("audioBitrate");
+
+    publisher.setVideoSettings(settings);
+  }
+
   @Nullable
   @Override
   public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
