@@ -1,5 +1,6 @@
 package com.reactnativertmppublisher;
 
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 
@@ -10,10 +11,14 @@ import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.reactnativertmppublisher.modules.Publisher;
 import com.reactnativertmppublisher.modules.SurfaceHolderHelper;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
+import com.reactnativertmppublisher.modules.VideoSettings;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class RTMPManager extends SimpleViewManager<SurfaceView> {
@@ -58,6 +63,15 @@ public class RTMPManager extends SimpleViewManager<SurfaceView> {
   @ReactProp(name = "streamName")
   public void setStreamName(SurfaceView surfaceView, @Nullable String name) {
     publisher.setStreamName(name);
+  }
+
+  @ReactProp(name = "allowedVideoOrientations")
+  public void setAllowedVideoOrientations(SurfaceView surfaceView, @Nullable ReadableArray allowedVideoOrientations) {
+    List<String> allowedOrientations = new ArrayList<>();
+    for (int i = 0; i < allowedVideoOrientations.size(); i++) {
+      allowedOrientations.add(allowedVideoOrientations.getString(i));
+    }
+    publisher.setAllowedVideoOrientations(allowedOrientations);
   }
 
   @ReactProp(name = "videoOrientation")
