@@ -60,6 +60,11 @@ public class RTMPManager extends SimpleViewManager<SurfaceView> {
     publisher.setStreamName(name);
   }
 
+  @ReactProp(name = "videoOrientation")
+  public void setVideoOrientation(SurfaceView surfaceView, @Nullable String videoOrientation) {
+    publisher.setVideoOrientation(videoOrientation);
+  }
+
   @ReactProp(name = "videoSettings")
   public void setVideoSettings(SurfaceView surfaceView, @Nullable ReadableMap videoSettings) {
     Log.d("RTMPPublisher", "videoSettings prop:" + String.valueOf(videoSettings));
