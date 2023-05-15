@@ -1,3 +1,8 @@
+## [v0.4.19]
+
+### Fixes
+- Fixed switch camera wrong initialization issue on repeated stream
+
 ## [v0.4.18]
 
 ### Fixes
