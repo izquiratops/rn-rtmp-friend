@@ -28,6 +28,7 @@ class RTMPCreator {
         bitrate: 3000 * 1024,
         audioBitrate: 128 * 1000
     )
+    public static var cameraPosition: AVCaptureDevice.Position = .back
 
     public static var videoOrientation: AVCaptureVideoOrientation = AVCaptureVideoOrientation.portrait
     public static var allowedVideoOrientations: [AVCaptureVideoOrientation] = [

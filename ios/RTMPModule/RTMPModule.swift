@@ -13,8 +13,6 @@ import HaishinKit
 
 @objc(RTMPPublisher)
 class RTMPModule: NSObject {
-    private var cameraPosition: AVCaptureDevice.Position = .back
-
     @objc
     func startStream(_ resolve: (RCTPromiseResolveBlock), reject: (RCTPromiseRejectBlock)){
         RTMPCreator.startPublish()
@@ -52,13 +50,16 @@ class RTMPModule: NSObject {
 
     @objc
     func switchCamera(_ resolve: (RCTPromiseResolveBlock), reject: (RCTPromiseRejectBlock)){
-        cameraPosition = cameraPosition == .back ? .front : .back
+        RTMPCreator.cameraPosition = RTMPCreator.cameraPosition == .back ? .front : .back
         
         RTMPCreator.stream.captureSettings = [
-            .isVideoMirrored: cameraPosition == .back ? false : true
+            .isVideoMirrored: RTMPCreator.cameraPosition == .back ? false : true
         ]
         RTMPCreator.stream.attachCamera(
-            AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: cameraPosition)
+            AVCaptureDevice.default(
+                .builtInWideAngleCamera,
+                for: .video,
+                position: RTMPCreator.cameraPosition)
         )
     }
 

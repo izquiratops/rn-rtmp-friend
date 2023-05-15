@@ -90,6 +90,7 @@ class RTMPView: UIView {
       .sessionPreset: AVCaptureSession.Preset.hd1920x1080,
       .continuousAutofocus: true,
       .continuousExposure: true,
+      .isVideoMirrored: false
     ]
 
     RTMPCreator.stream.videoSettings = [
@@ -102,6 +103,7 @@ class RTMPView: UIView {
 
     RTMPCreator.stream.attachAudio(AVCaptureDevice.default(for: .audio))
     RTMPCreator.stream.attachCamera(AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back))
+    RTMPCreator.cameraPosition = .back
 
     RTMPCreator.connection.addEventListener(.rtmpStatus, selector: #selector(statusHandler), observer: self)
     RTMPCreator.connection.addEventListener(.ioError, selector: #selector(rtmpErrorHandler), observer: self)
