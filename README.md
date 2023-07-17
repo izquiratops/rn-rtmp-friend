@@ -122,7 +122,7 @@ async function publisherActions() {
 
 |     Name     |   Type   | Required |              Description              |
 | :----------: | :------: | :------: | :-----------------------------------: |
-| `streamURL`  | `string` |  `true`  | Publish URL address with RTM Protocol |
+| `streamURL`  | `string` |  `true`  | Publish URL address with RTMP Protocol |
 | `streamName` | `string` |  `true`  |          Stream name or key           |
 | `videoSettings` | `VideoSettingsType` |  `false`  |   Video settings for video        |
 | `allowedVideoOrientations` | `VideoOrientation[]` |  `false`  |   Allowed video orientation        |
@@ -190,7 +190,7 @@ For live stream, Youtube gives you stream url and stream key, you can place the 
 ## Used Native Packages
 
 - Android: [rtmp-rtsp-stream-client-java](https://github.com/pedroSG94/rtmp-rtsp-stream-client-java) [2.2.2]
-- iOS: [HaishinKit.swift](https://github.com/shogo4405/HaishinKit.swift) [1.2.7]
+- iOS: [HaishinKit.swift](https://github.com/shogo4405/HaishinKit.swift) [1.5.3]
 
 ## Contributing
 

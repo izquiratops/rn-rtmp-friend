@@ -1,7 +1,7 @@
 {
   "name": "react-native-publisher",
   "version": "0.5.0",
-  "description": "RTM Publisher for React Native",
+  "description": "RTMP Publisher for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
