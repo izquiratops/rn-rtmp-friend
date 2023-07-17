@@ -1,3 +1,8 @@
+## [v0.5.0]
+
+### Features
+- Update HaishinKit ios to 1.5.3 for increased stability
+
 ## [v0.4.19]
 
 ### Fixes
