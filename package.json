@@ -1,6 +1,6 @@
 {
-  "name": "react-native-publisher",
-  "version": "0.5.0",
+  "name": "rn-rtmp",
+  "version": "0.0.1",
   "description": "RTMP Publisher for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -30,13 +30,9 @@
     "test": "jest",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepare": "bob build",
     "release": "dotenv release-it --",
-    "pods": "cd example && pod-install --quiet",
-    "bootstrap": "pnpm install example && npx pod-install example/ios ",
-    "build": "pnpm install && pnpm pack",
-    "unpack": "for file in react-native-publisher*.tgz; do tar -xzf \"$file\"; done",
-    "deletePackage": "rm -r package && rm -r react-native-publisher*.tgz"
+    "prepare": "bob build",
+    "build": "pnpm pack"
   },
   "keywords": [
     "react-native",

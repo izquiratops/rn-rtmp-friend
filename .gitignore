@@ -67,6 +67,6 @@ example/.env
 .env
 
 package/
-react-native-publisher*.tgz
+rn-rtmp*.tgz
 
 coverage/
