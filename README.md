@@ -1,7 +1,6 @@
 
 
 <p align="center">
-<img src="https://img.shields.io/github/license/izquiratops/rn-rtmp-friend" alt="github/license" />
 <img src="https://img.shields.io/github/issues/izquiratops/rn-rtmp-friend" alt="github/issues" />
 <img src="https://img.shields.io/github/issues-pr/izquiratops/rn-rtmp-friend" alt="github/issues-pr" />
 <img alt="npm" src="https://img.shields.io/npm/v/react-native-publisher">
