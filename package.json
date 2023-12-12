@@ -37,18 +37,19 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "rtmp"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andriiklymiuk/react-native-publisher.git"
+    "url": "git+https://github.com/izquiratops/rn-rtmp-publisher.git"
   },
-  "author": "Ezran <andriiklymiuk@gmail.com> (https://github.com/andriiklymiuk)",
+  "author": "Jordi <jordi.izquierdo.casares@gmail.com> (https://github.com/izquiratops)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andriiklymiuk/react-native-publisher/issues"
+    "url": "https://github.com/izquiratops/rn-rtmp-publisher/issues"
   },
-  "homepage": "https://github.com/andriiklymiuk/react-native-publisher#readme",
+  "homepage": "https://github.com/izquiratops/rn-rtmp-publisher#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
