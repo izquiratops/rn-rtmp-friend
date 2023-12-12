@@ -1,37 +1,12 @@
 
 
 <p align="center">
-<img src="https://img.shields.io/github/license/andriiklymiuk/react-native-publisher" alt="github/license" />
-<img src="https://img.shields.io/github/issues/andriiklymiuk/react-native-publisher" alt="github/issues" />
-<img src="https://img.shields.io/github/issues-pr/andriiklymiuk/react-native-publisher" alt="github/issues-pr" />
+<img src="https://img.shields.io/github/license/izquiratops/rn-rtmp-friend" alt="github/license" />
+<img src="https://img.shields.io/github/issues/izquiratops/rn-rtmp-friend" alt="github/issues" />
+<img src="https://img.shields.io/github/issues-pr/izquiratops/rn-rtmp-friend" alt="github/issues-pr" />
 <img alt="npm" src="https://img.shields.io/npm/v/react-native-publisher">
-<img src="https://img.shields.io/github/followers/andriiklymiuk?style=social" alt="github/followers" />
-<img src="https://img.shields.io/github/stars/andriiklymiuk/react-native-publisher?style=social" alt="github/stars" />
-<img src="https://img.shields.io/github/forks/andriiklymiuk/react-native-publisher?style=social" alt="github/forks" />
 </p>
 
-📹 Live stream RTMP publisher for React Native with built in camera support!
-
-THIS IS ORIGINALLY FORK OF [THE AWESOME LIBRARY](https://github.com/Andriiklymiuk/react-native-publisher). p.s Created this fork, because i needed some fixes to be in the app (like video settings setup, reconnection, etc.)
-
-### ⚠️🛠️ Support for [the new architecture](https://reactnative.dev/docs/the-new-architecture/landing-page) is under development
-
-## Installation
-
-```sh
-npm install react-native-publisher
-```
-
-or
-
-```sh
-yarn add react-native-publisher
-```
-
-and for iOS
-```sh
-cd ios && pod install
-```
 ## Android
 
 Add Android Permission for camera and audio to `AndroidManifest.xml`
@@ -53,21 +28,6 @@ Add iOS Permission for camera and audio to `Info.plist`
 <key>NSMicrophoneUsageDescription</key>
  <string>AUDIO PERMISSION DESCRIPTION</string>
 ```
-
-## Example Project
-
-Clone the repo and run
-
-```sh
-yarn
-```
-and
-
-```sh
-cd example && yarn ios (or yarn android)
-```
-
-You can use Youtube for live stream server. You can check [Live on Youtube](https://support.google.com/youtube/answer/2474026?hl=tr&ref_topic=9257984)
 
 ## Usage
 ```js
@@ -109,11 +69,11 @@ async function publisherActions() {
     "portraitUpsideDown"
   ]}
   videoOrientation="portrait"
-  onConnectionFailedRtmp={() => ...}
-  onConnectionStartedRtmp={() => ...}
-  onConnectionSuccessRtmp={() => ...}
-  onDisconnectRtmp={() => ...}
-  onNewBitrateRtmp={() => ...}
+  onConnectionFailed={() => ...}
+  onConnectionStarted={() => ...}
+  onConnectionSuccess={() => ...}
+  onDisconnect={() => ...}
+  onNewBitrate={() => ...}
   onStreamStateChanged={(status: streamState) => ...}
 />
 ```
@@ -187,10 +147,6 @@ For live stream, Youtube gives you stream url and stream key, you can place the 
 | `VideoOrientation`       | `portrait`, `landscapeLeft`, `landscapeRight`, `portraitUpsideDown`   |
 
 * AudioInputType: WIRED_HEADSET type supporting in only iOS. On Android it affects nothing. If a wired headset connected to Android device, device uses it as default.
-## Used Native Packages
-
-- Android: [rtmp-rtsp-stream-client-java](https://github.com/pedroSG94/rtmp-rtsp-stream-client-java) [2.2.2]
-- iOS: [HaishinKit.swift](https://github.com/shogo4405/HaishinKit.swift) [1.5.3]
 
 ## Contributing
 

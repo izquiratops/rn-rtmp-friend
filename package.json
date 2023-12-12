@@ -1,5 +1,5 @@
 {
-  "name": "rn-rtmp",
+  "name": "rn-rtmp-friend",
   "version": "0.0.1",
   "description": "RTMP Publisher for React Native",
   "main": "lib/commonjs/index",
