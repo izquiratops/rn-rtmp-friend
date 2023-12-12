@@ -42,14 +42,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/izquiratops/rn-izquiratops/rn-rtmp-friend.git"
+    "url": "git+https://github.com/izquiratops/rn-rtmp-friend.git"
   },
   "author": "Jordi <jordi.izquierdo.casares@gmail.com> (https://github.com/izquiratops)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/izquiratops/rn-izquiratops/rn-rtmp-friend/issues"
+    "url": "https://github.com/izquiratops/rn-rtmp-friend/issues"
   },
-  "homepage": "https://github.com/izquiratops/rn-izquiratops/rn-rtmp-friend#readme",
+  "homepage": "https://github.com/izquiratops/rn-rtmp-friend#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
